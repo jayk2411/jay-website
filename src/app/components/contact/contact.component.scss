@@ -1,10 +1,19 @@
+:host {
+  display: block;
+  color: var(--text-light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin-top: 3rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -13,11 +22,10 @@
 }
 
 .contact-info {
-  color: var(--text-light);
-
   h3 {
     color: var(--accent-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
   }
 
   .contact-methods {
@@ -28,16 +36,36 @@
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
+      padding: 1.5rem;
       background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 0.5rem;
+      border-radius: 1rem;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
 
       i {
         font-size: 1.5rem;
         color: var(--accent-color);
+      }
+
+      h4 {
+        color: var(--accent-color);
+        margin-bottom: 0.25rem;
+      }
+
+      a, p {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--accent-color);
+        }
       }
     }
   }
@@ -50,13 +78,19 @@
   padding: 2rem;
   border-radius: 1rem;
 
+  h3 {
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+  }
+
   .form-group {
     margin-bottom: 1.5rem;
 
     label {
       display: block;
-      color: var(--text-light);
       margin-bottom: 0.5rem;
+      color: var(--text-light);
     }
 
     input, textarea {
@@ -73,6 +107,10 @@
         border-color: var(--accent-color);
         background: rgba(255, 255, 255, 0.15);
       }
+
+      &.invalid {
+        border-color: #ef4444;
+      }
     }
 
     textarea {
@@ -84,6 +122,10 @@
   button {
     width: 100%;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     background: var(--accent-color);
     color: var(--dark-bg);
     border: none;
@@ -92,7 +134,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
     }
@@ -100,6 +142,10 @@
     &:disabled {
       opacity: 0.7;
       cursor: not-allowed;
+    }
+
+    i {
+      font-size: 1.1rem;
     }
   }
 }

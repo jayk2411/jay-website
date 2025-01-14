@@ -11,6 +11,7 @@ export interface Project {
   githubUrl?: string;
   categories: string[];
   featured: boolean;
+  highlights?: string[];
 }
 
 @Injectable({
@@ -20,27 +21,87 @@ export class ProjectService {
   private projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce platform built with MEAN stack featuring real-time inventory, payment integration, and admin dashboard.',
-      imageUrl: 'assets/images/projects/ecommerce.jpg',
-      technologies: ['Angular', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-      liveUrl: 'https://example.com/ecommerce',
-      githubUrl: 'https://github.com/yourusername/ecommerce',
-      categories: ['web', 'fullstack'],
-      featured: true
+      title: 'ProLance IT Solutions',
+      description: 'A comprehensive IT solutions platform built with Angular 14 and .NET technologies. Features include dynamic service listings, project portfolio showcase, and an integrated contact management system. The platform demonstrates modern web development practices with responsive design and optimized performance.',
+      imageUrl: 'assets/project/prolance.png',
+      technologies: [
+        'Angular',
+        'C#.NET',
+        'SQL Server',
+        'IIS Server',
+        'Responsive Design',
+        'SEO Optimization'
+      ],
+      liveUrl: 'https://prolanceit.in/',
+      categories: ['web', 'fullstack', 'enterprise'],
+      featured: true,
+      highlights: [
+        'Custom CMS for service management',
+        'Responsive design for all devices',
+        'SEO-optimized content structure',
+        'Integrated contact form with backend validation',
+        'Performance-optimized image loading',
+        'Secure hosting with SSL certification'
+      ]
     },
     {
       id: 2,
-      title: 'Task Management System',
-      description: 'Enterprise task management system built with .NET Core and SQL Server with real-time updates and team collaboration features.',
-      imageUrl: 'assets/images/projects/task-manager.jpg',
-      technologies: ['.NET Core', 'C#', 'SQL Server', 'SignalR', 'Azure'],
-      liveUrl: 'https://example.com/task-manager',
-      githubUrl: 'https://github.com/yourusername/task-manager',
-      categories: ['web', 'enterprise'],
-      featured: true
+      title: 'Personal Portfolio Website',
+      description: 'Modern portfolio website built with Angular 17 featuring a sleek design, smooth animations, and responsive layout. Showcases projects, skills, and professional experience with an interactive user interface.',
+      imageUrl: 'assets/project/portfolio.png',
+      technologies: [
+        'Angular 17',
+        'SCSS',
+        'TypeScript',
+        'Netlify',
+        'GitHub Actions',
+        'Responsive Design'
+      ],
+      liveUrl: 'https://jaykakdiya.netlify.app/',
+      githubUrl: 'https://github.com/jayk2411/jay-website',
+      categories: ['web', 'frontend'],
+      featured: true,
+      highlights: [
+        'Modern glass-morphism design',
+        'Smooth scroll animations',
+        'Dynamic project filtering',
+        'Interactive skill showcase',
+        'Responsive layout for all devices',
+        'Automated deployment with GitHub Actions',
+        'Performance optimized assets',
+        'SEO friendly structure'
+      ]
     },
-    // Add more projects as needed
+    {
+      id: 3,
+      title: 'T2D2 - AI-Powered Asset Inspection',
+      description: 'An innovative AI-powered inspection platform that revolutionizes building asset management. Built with cutting-edge technologies, the platform features automated damage detection, cloud-based inspection management, and comprehensive analysis tools.',
+      imageUrl: 'assets/project/T2D2.png',
+      technologies: [
+        'Angular',
+        'Node.js',
+        'Python',
+        'TensorFlow',
+        'AWS',
+        'Computer Vision',
+        'Machine Learning'
+      ],
+      liveUrl: 'https://t2d2.ai/',
+      categories: ['web', 'fullstack', 'enterprise', 'ai'],
+      featured: true,
+      highlights: [
+        'AI-powered damage detection system',
+        'Cloud-based inspection management portal',
+        'Drone inspection imagery integration',
+        'Real-time analysis and monitoring',
+        'Advanced computer vision algorithms',
+        'Multi-platform support (mobile, web, drone)',
+        'Automated reporting and analytics',
+        'Integration with CAD/BIM systems',
+        '360° photo visualization',
+        'Thermal imaging analysis'
+      ]
+    },
   ];
 
   getProjects(): Observable<Project[]> {

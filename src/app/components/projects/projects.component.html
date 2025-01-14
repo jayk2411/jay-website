@@ -1,1 +1,39 @@
-<p>projects works!</p>
+<!-- Filter Buttons -->
+<div class="filter-buttons">
+  <button 
+    *ngFor="let category of categories"
+    [class.active]="selectedCategory === category.id"
+    (click)="filterProjects(category.id)">
+    {{ category.label }}
+  </button>
+</div>
+
+<!-- Projects Grid -->
+<div class="projects-grid" [@projectsAnimation]="filteredProjects.length">
+  <div class="project-card" *ngFor="let project of filteredProjects">
+    <img 
+      [src]="project.imageUrl" 
+      [alt]="project.title"
+      class="project-image">
+    
+    <div class="project-content">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+      
+      <div class="project-tags">
+        <span class="tag" *ngFor="let tag of project.technologies">
+          {{ tag }}
+        </span>
+      </div>
+
+      <div class="project-links">
+        <a [href]="project.githubUrl" target="_blank" *ngIf="project.githubUrl">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a [href]="project.liveUrl" target="_blank" *ngIf="project.liveUrl">
+          <i class="fas fa-external-link-alt"></i> Live Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
