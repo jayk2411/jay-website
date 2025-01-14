@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormControl } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-contact',
