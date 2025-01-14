@@ -1,0 +1,45 @@
+<header class="header" [class.scrolled]="isScrolled" [@fadeInDown]>
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo" (click)="scrollToSection('#hero')">
+        <!-- <img src="assets/images/logo.png" alt="Logo" class="logo-img"> -->
+        <img src="assets/images/logo-transparent.png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="name">Jaykumar</span>
+          <span class="title">WebDeveloper</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-content" [class.active]="isMenuOpen">
+        <ul class="nav-links">
+          <li *ngFor="let item of menuItems">
+            <a [href]="item.link" 
+               (click)="scrollToSection(item.link)"
+               class="nav-link">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="assets/Jaykumar_Kakdiya_Resume.pdf" 
+             target="_blank"
+             class="btn btn-outline">
+            Resume
+          </a>
+          <a href="#contact" 
+             (click)="scrollToSection('#contact')"
+             class="btn btn-primary">
+            Hire Me
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

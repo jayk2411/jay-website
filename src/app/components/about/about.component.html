@@ -1,0 +1,56 @@
+<div class="container">
+  <h2 class="section-title">About Me</h2>
+  
+  <div class="about-content">
+    <div class="about-grid">
+      <div class="about-image fade-in-up">
+        <img src="assets/images/profile.png" alt="Jaykumar Kakadiya">
+        <div class="social-links">
+          <a href="https://github.com/yourusername" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/yourusername" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="about-intro fade-in-up">
+          <p class="lead">
+            I'm a passionate Full Stack Developer with {{ experience }} of experience in building modern web applications.
+            I specialize in both MEAN/MERN stack and .NET technologies, bringing a versatile skill set to every project.
+          </p>
+        </div>
+
+        <div class="about-cards">
+          <div class="card fade-in-up">
+            <h3><i class="fas fa-code"></i> Technical Expertise</h3>
+            <ul>
+              <li *ngFor="let tech of technologies">{{ tech }}</li>
+            </ul>
+          </div>
+
+          <div class="card fade-in-up">
+            <h3><i class="fas fa-star"></i> Professional Highlights</h3>
+            <ul>
+              <li *ngFor="let highlight of highlights">{{ highlight }}</li>
+            </ul>
+          </div>
+
+          <div class="card fade-in-up">
+            <h3><i class="fas fa-graduation-cap"></i> Education & Certifications</h3>
+            <ul>
+              <li>Bachelor's in Computer Science</li>
+              <li>Microsoft Certified: Azure Developer Associate</li>
+              <li>MongoDB Certified Developer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<section class="hero" [@fadeInUp]>
+  <div class="overlay-effects"></div>
+  <div class="background-elements">
+    <div class="code-element" *ngFor="let snippet of codeSnippets">
+      {{ snippet }}
+    </div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="animate-up">Hi, I'm {{ name }}</h1>
+      <h2 class="animate-up">{{ title }}</h2>
+      <p class="lead animate-up">{{ description }}</p>
+      
+      <div class="cta-buttons animate-up">
+        <button class="btn btn-primary" (click)="scrollToProjects()">
+          <i class="fas fa-code"></i>
+          View Projects
+        </button>
+        <button class="btn btn-outline" (click)="scrollToContact()">
+          <i class="fas fa-paper-plane"></i>
+          Contact Me
+        </button>
+      </div>
+
+      <div class="tech-stack animate-up">
+        <div class="tech-item" *ngFor="let tech of techStack">
+          <i [class]="tech.icon"></i>
+          <span class="tech-name">{{ tech.name }}</span>
+        </div>
+      </div>
+
+      <div class="scroll-indicator animate-up">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <div class="scroll-text">Scroll Down</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="particle-container">
+    <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"></div>
+  </div>
+</section>

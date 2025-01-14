@@ -1,0 +1,416 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 6rem;
+  overflow: hidden;
+  margin-top: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.1) 0%,
+      rgba(96, 165, 250, 0.05) 25%,
+      transparent 50%
+    );
+    z-index: -1;
+  }
+
+  .overlay-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        transparent 100%
+      );
+      background-size: 100% 4px;
+      animation: scanline 8s linear infinite;
+    }
+  }
+}
+
+@keyframes backgroundZoom {
+  0% {
+    background-size: cover;
+    background-position: center;
+  }
+  100% {
+    background-size: 110%;
+    background-position: center;
+  }
+}
+
+// Add these cool background elements
+.background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+  .code-element {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.03);
+    font-family: 'Fira Code', monospace;
+    white-space: pre;
+    font-size: 1.2rem;
+    user-select: none;
+
+    &:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      transform: rotate(-15deg);
+    }
+
+    &:nth-child(2) {
+      top: 40%;
+      right: 10%;
+      transform: rotate(10deg);
+    }
+
+    &:nth-child(3) {
+      bottom: 15%;
+      left: 15%;
+      transform: rotate(5deg);
+    }
+  }
+
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    opacity: 0.1;
+    filter: blur(40px);
+    animation: float 10s ease infinite;
+
+    &:nth-child(1) {
+      width: 500px !important;
+      height: 500px !important;
+      top: -250px !important;
+      right: -200px !important;
+      background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.1) 0%,
+        rgba(96, 165, 250, 0.05) 50%,
+        transparent 70%
+      ) !important;
+    }
+
+    &:nth-child(2) {
+      width: 300px !important;
+      height: 300px !important;
+      bottom: -150px !important;
+      left: -100px !important;
+      background: radial-gradient(
+        circle,
+        rgba(96, 165, 250, 0.1) 0%,
+        rgba(37, 99, 235, 0.05) 50%,
+        transparent 70%
+      ) !important;
+    }
+  }
+}
+
+// Add these animations
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ffffff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+
+    i {
+      font-size: 1.2rem;
+    }
+
+    &-primary {
+      background: white;
+      color: var(--primary-color);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &-outline {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.tech-stack {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    i {
+      font-size: 2.5rem;
+    }
+
+    .tech-name {
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+  }
+}
+
+.scroll-indicator {
+  .mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid white;
+    border-radius: 13px;
+    margin: 0 auto;
+    position: relative;
+
+    .wheel {
+      width: 4px;
+      height: 8px;
+      background: white;
+      border-radius: 2px;
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll 1.5s infinite;
+    }
+  }
+
+  .scroll-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 15px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    padding: 0 2rem;
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .tech-stack {
+    gap: 1.5rem;
+    
+    .tech-item i {
+      font-size: 2rem;
+    }
+  }
+}
+
+// Add this to your existing styles
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float-particle 15s infinite linear;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      $size: random(4) + px;
+      width: $size;
+      height: $size;
+      left: random(100) + 0%;
+      top: random(100) + 0%;
+      animation-delay: - random(15) + s;
+      animation-duration: random(15) + 10 + s;
+      opacity: random(100) / 100;
+    }
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 -100vh;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

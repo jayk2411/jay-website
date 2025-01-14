@@ -1,0 +1,118 @@
+.about-content {
+  .about-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+
+    .lead {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 3rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .about-image {
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .social-links {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      border-radius: 2rem;
+      box-shadow: var(--card-shadow);
+
+      a {
+        color: var(--text-light);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: var(--accent-color);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+
+  .about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+
+    .card {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+
+      h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      ul {
+        list-style: none;
+        
+        li {
+          position: relative;
+          padding-left: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: var(--text-light);
+          
+          &::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    .about-intro {
+      padding: 0 1rem;
+      
+      .lead {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

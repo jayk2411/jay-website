@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="section-title">Skills & Expertise</h2>
+
+  <div class="skills-grid">
+    <div class="skill-category" *ngFor="let category of skillCategories">
+      <div class="card fade-in-up">
+        <h3>{{ category.name }}</h3>
+        
+        <div class="skills-list">
+          <div class="skill-item" *ngFor="let skill of category.skills">
+            <div class="skill-header">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-level">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tools-section">
+    <h3>Tools & Technologies</h3>
+    <div class="tools-grid">
+      <div class="tool-item" *ngFor="let tool of tools">
+        <i [class]="tool.icon"></i>
+        <span>{{ tool.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>
